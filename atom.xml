@@ -40,53 +40,6 @@
   </entry>
   
   <entry>
-    <title>ElasticSearch</title>
-    <link href="http://dragon-lab.github.io/2017/02/15/ElasticSearch/"/>
-    <id>http://dragon-lab.github.io/2017/02/15/ElasticSearch/</id>
-    <published>2017-02-15T09:34:58.000Z</published>
-    <updated>2018-05-04T04:34:39.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h2 id="数据同步"><a href="#数据同步" class="headerlink" title="数据同步"></a>数据同步</h2><h2 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h2>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;h2 id=&quot;配置&quot;&gt;&lt;a href=&quot;#配置&quot; class=&quot;headerlink&quot; title=&quot;配置&quot;&gt;&lt;/a&gt;配置&lt;/h2&gt;&lt;h2 id
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>生活感想</title>
-    <link href="http://dragon-lab.github.io/2017/02/09/Life-feeling/"/>
-    <id>http://dragon-lab.github.io/2017/02/09/Life-feeling/</id>
-    <published>2017-02-09T09:30:52.000Z</published>
-    <updated>2018-05-04T04:34:39.000Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><p>随着渐渐的长大，逐渐明白世界上并没有坏人，但是会有无尽的执念，活在执念中的人是痛苦的。必须要有相应的胸襟、气度、修为、见识去调和。</p></li><li><p>不管工作多忙，一定要找到一件可以让自己开心的事，坚持做下去，哪怕仅仅占用了1%的时间，也是至关重要的。它可以在关键的时候陪你走过沮丧、失败、痛苦。</p></li><li><p>懂技术的人不一定可以天长地久，但是懂生活的人可以。</p><p> 在吃“初色”的时候我忽然想到，如果长征的时候，每个人都可以吃到这样的美味，是否还可以走得完两万五千里长征。少数人的雄心宏图不一定可以改变历史的轨迹，但大多数人的生活一定可以影响历史的轨迹。 懂得生活、懂得快乐，方能长久。</p></li><li><p>“忍辱”的意义在于体会”无我”</p><p> 有时候我会去想，为什么一定会有少部分的人去忍受，有没有一种合理的方式，可以顾全大部分人的利益，但似乎每一次都找不到答案，每一次的变动都一定会带来一些意想不到的东西。</p></li><li><p>如无必要，勿增实体。</p></li><li><p>勤修行，少用神通。 心自在，方容天下。</p></li><li><p>窥一斑而知全豹，为上等人。见豹而知豹，为中等人。见豹而不自知，非有心之过，不知者不怪，切莫轻易责于人而。</p></li><li><p>知对而行便是善，知错而行便是恶。善恶不在于心，而见于行。</p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;随着渐渐的长大，逐渐明白世界上并没有坏人，但是会有无尽的执念，活在执念中的人是痛苦的。必须要有相应的胸襟、气度、修为、见识去调和。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;不管工作多忙，一定要找到一件可以让自己开心的事，坚持做下去，哪怕仅仅占用了1%的时间，也是
-      
-    
-    </summary>
-    
-    
-      <category term="随笔" scheme="http://dragon-lab.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Apache TinkerPop</title>
     <link href="http://dragon-lab.github.io/2017/02/08/Apache-Tinkerpop/"/>
     <id>http://dragon-lab.github.io/2017/02/08/Apache-Tinkerpop/</id>
@@ -105,22 +58,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Apache Camel的一些经验</title>
-    <link href="http://dragon-lab.github.io/2017/02/07/Learning-Apache-Camel/"/>
-    <id>http://dragon-lab.github.io/2017/02/07/Learning-Apache-Camel/</id>
-    <published>2017-02-07T03:39:17.000Z</published>
-    <updated>2018-05-04T04:34:39.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="http://dragon-lab.github.io/tags/Java/"/>
     
   </entry>
   
@@ -145,22 +82,6 @@
     
     
       <category term="Linux" scheme="http://dragon-lab.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ansible 学习笔记</title>
-    <link href="http://dragon-lab.github.io/2017/02/07/Learning-Ansible/"/>
-    <id>http://dragon-lab.github.io/2017/02/07/Learning-Ansible/</id>
-    <published>2017-02-07T03:02:07.000Z</published>
-    <updated>2018-05-04T04:34:39.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="运维" scheme="http://dragon-lab.github.io/tags/%E8%BF%90%E7%BB%B4/"/>
     
   </entry>
   
@@ -190,38 +111,6 @@
   </entry>
   
   <entry>
-    <title>IM服务器架构的一些经验</title>
-    <link href="http://dragon-lab.github.io/2017/02/04/IM-Server-Architecture/"/>
-    <id>http://dragon-lab.github.io/2017/02/04/IM-Server-Architecture/</id>
-    <published>2017-02-04T09:15:25.000Z</published>
-    <updated>2018-05-04T04:34:39.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="架构" scheme="http://dragon-lab.github.io/tags/%E6%9E%B6%E6%9E%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mysql数据库优化的一些思路</title>
-    <link href="http://dragon-lab.github.io/2017/02/04/Mysql-Database-Optimization/"/>
-    <id>http://dragon-lab.github.io/2017/02/04/Mysql-Database-Optimization/</id>
-    <published>2017-02-04T09:14:39.000Z</published>
-    <updated>2018-05-04T04:34:39.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="数据库" scheme="http://dragon-lab.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Tensorflow 学习之路</title>
     <link href="http://dragon-lab.github.io/2017/02/04/Learning-Tensorflow/"/>
     <id>http://dragon-lab.github.io/2017/02/04/Learning-Tensorflow/</id>
@@ -241,30 +130,6 @@
     
     
       <category term="机器学习" scheme="http://dragon-lab.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>软件架构模式</title>
-    <link href="http://dragon-lab.github.io/2017/02/03/software-architecture/"/>
-    <id>http://dragon-lab.github.io/2017/02/03/software-architecture/</id>
-    <published>2017-02-03T04:19:03.000Z</published>
-    <updated>2018-05-04T04:34:39.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="http://www.oreilly.com/programming/free/files/software-architecture-patterns.pdf" target="_blank" rel="noopener">软件架构模式</a></p><h2 id="分层架构"><a href="#分层架构" class="headerlink" title="分层架构"></a>分层架构</h2><h2 id="事件驱动架构"><a href="#事件驱动架构" class="headerlink" title="事件驱动架构"></a>事件驱动架构</h2><h2 id="微内核架构"><a href="#微内核架构" class="headerlink" title="微内核架构"></a>微内核架构</h2><p>OSGI</p><h2 id="微服务架构"><a href="#微服务架构" class="headerlink" title="微服务架构"></a>微服务架构</h2><h2 id="云平台架构"><a href="#云平台架构" class="headerlink" title="云平台架构"></a>云平台架构</h2><p><a href="/2017/02/03/Base-Architecture/">集成开发平台架构</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;http://www.oreilly.com/programming/free/files/software-architecture-patterns.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;软件架构模式&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-      <category term="架构" scheme="http://dragon-lab.github.io/tags/%E6%9E%B6%E6%9E%84/"/>
     
   </entry>
   
@@ -289,29 +154,6 @@
     
     
       <category term="Linux" scheme="http://dragon-lab.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>集成开发平台架构</title>
-    <link href="http://dragon-lab.github.io/2017/02/03/Base-Architecture/"/>
-    <id>http://dragon-lab.github.io/2017/02/03/Base-Architecture/</id>
-    <published>2017-02-03T02:47:34.000Z</published>
-    <updated>2018-05-04T04:34:39.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><h2 id="存储篇"><a href="#存储篇" class="headerlink" title="存储篇"></a>存储篇</h2><h3 id="Glusterfs"><a href="#Glusterfs" class="headerlink" title="Glusterfs"></a>Glusterfs</h3><h3 id="Ceph"><a href="#Ceph" class="headerlink" title="Ceph"></a>Ceph</h3><h2 id="集群运维篇"><a href="#集群运维篇" class="headerlink" title="集群运维篇"></a>集群运维篇</h2><h3 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h3><h3 id="Kubernetes"><a href="#Kubernetes" class="headerlink" title="Kubernetes"></a>Kubernetes</h3><h3 id="Openshift"><a href="#Openshift" class="headerlink" title="Openshift"></a>Openshift</h3><h3 id="Helm"><a href="#Helm" class="headerlink" title="Helm"></a>Helm</h3><h2 id="负载均衡篇"><a href="#负载均衡篇" class="headerlink" title="负载均衡篇"></a>负载均衡篇</h2><h3 id="Nginx-Ingress"><a href="#Nginx-Ingress" class="headerlink" title="Nginx Ingress"></a>Nginx Ingress</h3><h3 id="Rancher-Ingress"><a href="#Rancher-Ingress" class="headerlink" title="Rancher Ingress"></a>Rancher Ingress</h3><p><a href="https://github.com/rancher/lb-controller" target="_blank" rel="noopener">https://github.com/rancher/lb-controller</a></p><h2 id="日志收集篇"><a href="#日志收集篇" class="headerlink" title="日志收集篇"></a>日志收集篇</h2><h2 id="系统监控篇"><a href="#系统监控篇" class="headerlink" title="系统监控篇"></a>系统监控篇</h2><h3 id="Netsil"><a href="#Netsil" class="headerlink" title="Netsil"></a>Netsil</h3><h2 id="持续集成篇"><a href="#持续集成篇" class="headerlink" title="持续集成篇"></a>持续集成篇</h2><h3 id="Fabric8"><a href="#Fabric8" class="headerlink" title="Fabric8"></a>Fabric8</h3><h3 id="Apache-Camel"><a href="#Apache-Camel" class="headerlink" title="Apache Camel"></a>Apache Camel</h3>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;需求&quot;&gt;&lt;a href=&quot;#需求&quot; class=&quot;headerlink&quot; title=&quot;需求&quot;&gt;&lt;/a&gt;需求&lt;/h2&gt;&lt;h2 id=&quot;存储篇&quot;&gt;&lt;a href=&quot;#存储篇&quot; class=&quot;headerlink&quot; title=&quot;存储篇&quot;&gt;&lt;/a&gt;存储篇&lt;/h2&gt;&lt;h
-      
-    
-    </summary>
-    
-    
-      <category term="架构" scheme="http://dragon-lab.github.io/tags/%E6%9E%B6%E6%9E%84/"/>
     
   </entry>
   
