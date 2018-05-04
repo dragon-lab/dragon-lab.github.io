@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Apache TinkerPop | Dragon Lab | 天地所以能长且久者，以其不自生，故能长生。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="图是顶点（即节点、点）和边（即关系、线）的集合，其中顶点是表示某个域对象的实体（例如一个人、一个地方等），边代表两个顶点之间的关系。 TinkerPop是一个开源的图数据库程序的开发框架。Mallette回复了一个帖子说明了了TinkerPop不是一种编写图应用程序的规范或标准。TinkerPop仅仅提供一系列的接口，图数据库和数据库供应商可以实现（Blueprints），获得TinkerPop的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Apache TinkerPop">
+<meta property="og:url" content="http://dragon-lab.github.io/2017/02/08/Apache-Tinkerpop/index.html">
+<meta property="og:site_name" content="Dragon Lab">
+<meta property="og:description" content="图是顶点（即节点、点）和边（即关系、线）的集合，其中顶点是表示某个域对象的实体（例如一个人、一个地方等），边代表两个顶点之间的关系。 TinkerPop是一个开源的图数据库程序的开发框架。Mallette回复了一个帖子说明了了TinkerPop不是一种编写图应用程序的规范或标准。TinkerPop仅仅提供一系列的接口，图数据库和数据库供应商可以实现（Blueprints），获得TinkerPop的">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://dragon-lab.github.io/images/tinkerpop-modern.png">
+<meta property="og:image" content="http://dragon-lab.github.io/images/modern-edge-1-to-3-1.png">
+<meta property="og:image" content="http://dragon-lab.github.io/images/modern-edge-1-to-3-2.png">
+<meta property="og:image" content="http://dragon-lab.github.io/images/modern-edge-1-to-3-3.png">
+<meta property="og:updated_time" content="2018-05-04T04:34:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Apache TinkerPop">
+<meta name="twitter:description" content="图是顶点（即节点、点）和边（即关系、线）的集合，其中顶点是表示某个域对象的实体（例如一个人、一个地方等），边代表两个顶点之间的关系。 TinkerPop是一个开源的图数据库程序的开发框架。Mallette回复了一个帖子说明了了TinkerPop不是一种编写图应用程序的规范或标准。TinkerPop仅仅提供一系列的接口，图数据库和数据库供应商可以实现（Blueprints），获得TinkerPop的">
+<meta name="twitter:image" content="http://dragon-lab.github.io/images/tinkerpop-modern.png">
+    
+        <link rel="alternative" href="/atom.xml" title="Dragon Lab" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Dragon</h5>
+          <a href="mailto:隐藏" title="隐藏" class="mail">隐藏</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/dragon-lab" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Apache TinkerPop</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Apache TinkerPop</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-08T06:13:03.000Z" itemprop="datePublished" class="page-time">
+  2017-02-08
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TinkerPop-资料"><span class="post-toc-number">1.</span> <span class="post-toc-text">TinkerPop 资料</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TinkerPop-入门"><span class="post-toc-number">2.</span> <span class="post-toc-text">TinkerPop 入门</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Gremlin-Console"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Gremlin Console</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简单遍历"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">简单遍历</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#复杂遍历"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">复杂遍历</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建一个图"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">创建一个图</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#遍历自己的图"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">遍历自己的图</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#加载数据"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">加载数据</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Gremlin-Server"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">Gremlin Server</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TinkerPop-高级功能"><span class="post-toc-number">3.</span> <span class="post-toc-text">TinkerPop 高级功能</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#TinkerPop-2"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">TinkerPop 2</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Features"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">Features</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TinkerPop-存储"><span class="post-toc-number">4.</span> <span class="post-toc-text">TinkerPop 存储</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#TinkerGraph"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">TinkerGraph</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Neo4j"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">Neo4j</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Neo4jHA"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">Neo4jHA</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Neo4jBatch"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">Neo4jBatch</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Sail"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">Sail</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Sparksee"><span class="post-toc-number">4.6.</span> <span class="post-toc-text">Sparksee</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Rexster"><span class="post-toc-number">4.7.</span> <span class="post-toc-text">Rexster</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Accumulo"><span class="post-toc-number">4.8.</span> <span class="post-toc-text">Accumulo</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ArangoDB"><span class="post-toc-number">4.9.</span> <span class="post-toc-text">ArangoDB</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Bitsy"><span class="post-toc-number">4.10.</span> <span class="post-toc-text">Bitsy</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Bigdata"><span class="post-toc-number">4.11.</span> <span class="post-toc-text">Bigdata</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#FluxGraph"><span class="post-toc-number">4.12.</span> <span class="post-toc-text">FluxGraph</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#FoundationDB"><span class="post-toc-number">4.13.</span> <span class="post-toc-text">FoundationDB</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#InfiniteGraph"><span class="post-toc-number">4.14.</span> <span class="post-toc-text">InfiniteGraph</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JPA"><span class="post-toc-number">4.15.</span> <span class="post-toc-text">JPA</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#MongoDB"><span class="post-toc-number">4.16.</span> <span class="post-toc-text">MongoDB</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Oracle-NoSQL"><span class="post-toc-number">4.17.</span> <span class="post-toc-text">Oracle NoSQL</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#OrientDB"><span class="post-toc-number">4.18.</span> <span class="post-toc-text">OrientDB</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SQL-JDBC"><span class="post-toc-number">4.19.</span> <span class="post-toc-text">SQL/JDBC</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Titan"><span class="post-toc-number">4.20.</span> <span class="post-toc-text">Titan</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Apache-Tinkerpop"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Apache TinkerPop</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年02月08日 14:13" datetime="2017-02-08T06:13:03.000Z"  itemprop="datePublished">2017-02-08</time>
+
+            
+
+
+            
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>图是顶点（即节点、点）和边（即关系、线）的集合，其中顶点是表示某个域对象的实体（例如一个人、一个地方等），边代表两个顶点之间的关系。</p>
+<p>TinkerPop是一个开源的图数据库程序的开发框架。Mallette回复了一个<a href="http://stackoverflow.com/questions/20522547/what-is-tinkerpop" target="_blank" rel="noopener">帖子</a>说明了了TinkerPop不是一种编写图应用程序的规范或标准。TinkerPop仅仅提供一系列的接口，图数据库和数据库供应商可以实现（Blueprints），获得TinkerPop的其余特性，支持基于图的应用程序开发。</p>
+<h2 id="TinkerPop-资料"><a href="#TinkerPop-资料" class="headerlink" title="TinkerPop 资料"></a>TinkerPop 资料</h2><p><a href="http://umlg.org/sqlg.html" target="_blank" rel="noopener">http://umlg.org/sqlg.html</a></p>
+<h2 id="TinkerPop-入门"><a href="#TinkerPop-入门" class="headerlink" title="TinkerPop 入门"></a>TinkerPop 入门</h2><h3 id="Gremlin-Console"><a href="#Gremlin-Console" class="headerlink" title="Gremlin Console"></a>Gremlin Console</h3><p>下载<a href="https://www.apache.org/dyn/closer.lua/tinkerpop/3.2.3/apache-tinkerpop-gremlin-console-3.2.3-bin.zip" target="_blank" rel="noopener">Gremlin Console</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ unzip apache-tinkerpop-gremlin-console-3.2.3-bin.zip</span><br><span class="line">$ <span class="built_in">cd</span> apache-tinkerpop-gremlin-console-3.2.3/</span><br><span class="line">$ apache-tinkerpop-gremlin-console-3.2.3 bin/gremlin.sh</span><br><span class="line"></span><br><span class="line">         \,,,/</span><br><span class="line">         (o o)</span><br><span class="line">-----oOOo-(3)-oOOo-----</span><br><span class="line">plugin activated: tinkerpop.server</span><br><span class="line">plugin activated: tinkerpop.utilities</span><br><span class="line">plugin activated: tinkerpop.tinkergraph</span><br><span class="line">gremlin&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="简单遍历"><a href="#简单遍历" class="headerlink" title="简单遍历"></a>简单遍历</h3><p>使用<code>Gremlin Console</code>创建一个下面这样的图</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/tinkerpop-modern.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>使用下面的命令在<code>Gremlin Console</code>中实例化</p>
+<p>创建了一个<code>graph</code>的图实例，仅仅提供了图的一些基本操作和数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gremlin&gt; graph = TinkerFactory.createModern()</span><br><span class="line">==&gt;tinkergraph[vertices:6 edges:6]</span><br></pre></td></tr></table></figure>
+<p>还需要一个<code>TraversalSource</code>提供了额外的操作，例如遍历策略。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gremlin&gt; g = graph.traversal()</span><br><span class="line">==&gt;graphtraversalsource[tinkergraph[vertices:6 edges:6], standard]</span><br><span class="line">gremlin&gt;</span><br></pre></td></tr></table></figure>
+<p>获取所有顶点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">gremlin&gt; g.V()</span><br><span class="line">==&gt;v[1]</span><br><span class="line">==&gt;v[2]</span><br><span class="line">==&gt;v[3]</span><br><span class="line">==&gt;v[4]</span><br><span class="line">==&gt;v[5]</span><br><span class="line">==&gt;v[6]</span><br></pre></td></tr></table></figure>
+<p>获取id=1的顶点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gremlin&gt; g.V(1)</span><br><span class="line">==&gt;v[1]</span><br></pre></td></tr></table></figure>
+<p>获取id=1的顶点 name 属性的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gremlin&gt; g.V(1).values(&apos;name&apos;)</span><br><span class="line">==&gt;marko</span><br></pre></td></tr></table></figure>
+<p>获取id=1的订单的所有指向节点，且包含标签knows的边</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gremlin&gt; g.V(1).outE(&apos;knows&apos;)</span><br><span class="line">==&gt;e[7][1-knows-&gt;2]</span><br><span class="line">==&gt;e[8][1-knows-&gt;4]</span><br></pre></td></tr></table></figure>
+<p>获取id=1的订单的所有指向节点，且包含标签knows的边指向顶点的 name 属性的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gremlin&gt; g.V(1).outE(&apos;knows&apos;).inV().values(&apos;name&apos;)</span><br><span class="line">==&gt;vadas</span><br><span class="line">==&gt;josh</span><br></pre></td></tr></table></figure>
+<p><code>.out()</code> == <code>.outE().inV()</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gremlin&gt; g.V(1).out(&apos;knows&apos;).values(&apos;name&apos;)</span><br><span class="line">==&gt;vadas</span><br><span class="line">==&gt;josh</span><br></pre></td></tr></table></figure>
+<p>获取id=1的订单的所有指向节点，且包含标签knows的边指向的顶点，且age &gt; 30的顶点的 name 属性的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gremlin&gt; g.V(1).out(&apos;knows&apos;).has(&apos;age&apos;, gt(30)).values(&apos;name&apos;)</span><br><span class="line">==&gt;josh</span><br></pre></td></tr></table></figure>
+<h3 id="复杂遍历"><a href="#复杂遍历" class="headerlink" title="复杂遍历"></a>复杂遍历</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">gremlin&gt; graph = TinkerFactory.createModern()</span><br><span class="line">==&gt;tinkergraph[vertices:6 edges:6]</span><br><span class="line">gremlin&gt; g = graph.traversal()</span><br><span class="line">==&gt;graphtraversalsource[tinkergraph[vertices:6 edges:6], standard]</span><br><span class="line">gremlin&gt; g.V().has(&apos;name&apos;,within(&apos;vadas&apos;,&apos;marko&apos;)).values(&apos;age&apos;)</span><br><span class="line">==&gt;29</span><br><span class="line">==&gt;27</span><br><span class="line">gremlin&gt; g.V().has(&apos;name&apos;,within(&apos;vadas&apos;,&apos;marko&apos;)).values(&apos;age&apos;).mean()</span><br><span class="line">==&gt;28.0</span><br><span class="line">gremlin&gt; g.V().has(&apos;name&apos;,&apos;marko&apos;).out(&apos;created&apos;)</span><br><span class="line">==&gt;v[3]</span><br><span class="line">gremlin&gt; g.V().has(&apos;name&apos;,&apos;marko&apos;).out(&apos;created&apos;).in(&apos;created&apos;).values(&apos;name&apos;)</span><br><span class="line">==&gt;marko</span><br><span class="line">==&gt;josh</span><br><span class="line">==&gt;peter</span><br><span class="line">gremlin&gt; g.V().has(&apos;name&apos;,&apos;marko&apos;).as(&apos;exclude&apos;).out(&apos;created&apos;).in(&apos;created&apos;).where(neq(&apos;exclude&apos;)).values(&apos;name&apos;)</span><br><span class="line">==&gt;josh</span><br><span class="line">==&gt;peter</span><br><span class="line">gremlin&gt; g.V().as(&apos;a&apos;).out().as(&apos;b&apos;).out().as(&apos;c&apos;).select(&apos;a&apos;,&apos;b&apos;,&apos;c&apos;)</span><br><span class="line">==&gt;[a:v[1],b:v[4],c:v[5]]</span><br><span class="line">==&gt;[a:v[1],b:v[4],c:v[3]]</span><br><span class="line">gremlin&gt; g.V().group().by(label)</span><br><span class="line">==&gt;[software:[v[3],v[5]],person:[v[1],v[2],v[4],v[6]]]</span><br><span class="line">gremlin&gt; g.V().group().by(label).by(&apos;name&apos;)</span><br><span class="line">==&gt;[software:[lop,ripple],person:[marko,vadas,josh,peter]]</span><br></pre></td></tr></table></figure>
+<h3 id="创建一个图"><a href="#创建一个图" class="headerlink" title="创建一个图"></a>创建一个图</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/modern-edge-1-to-3-1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>上图展示了一个包含两个顶点的图，分别是<code>id=1</code>，<code>id=3</code>。边的<code>id=9</code>，并且边有个方向<code>1-&gt;3</code>。</p>
+<p>只有顶点和边的图，并没有什么意义，所以接下来我们给这些顶点和边赋予一些业务上的含义。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/modern-edge-1-to-3-2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>还可以给这些实体增加一些标签</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/modern-edge-1-to-3-3.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>这种模式可以直观的表示数据，使用下面的命令来创建这个图：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">gremlin&gt; graph = TinkerGraph.open()</span><br><span class="line">==&gt;tinkergraph[vertices:0 edges:0]</span><br><span class="line">gremlin&gt; v1 = graph.addVertex(T.id, 1, T.label, &quot;person&quot;, &quot;name&quot;, &quot;marko&quot;, &quot;age&quot;, 29)</span><br><span class="line">==&gt;v[1]</span><br><span class="line">gremlin&gt; v2 = graph.addVertex(T.id, 3, T.label, &quot;software&quot;, &quot;name&quot;, &quot;lop&quot;, &quot;lang&quot;, &quot;java&quot;)</span><br><span class="line">==&gt;v[3]</span><br><span class="line">gremlin&gt; v1.addEdge(&quot;created&quot;, v2, T.id, 9, &quot;weight&quot;, 0.4)</span><br><span class="line">==&gt;e[9][1-created-&gt;3]</span><br></pre></td></tr></table></figure>
+<p><code>T.id</code> 和 <code>T.label</code> 是保留关键字，可以将<code>T</code>看做一个静态变量。</p>
+<h3 id="遍历自己的图"><a href="#遍历自己的图" class="headerlink" title="遍历自己的图"></a>遍历自己的图</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">gremlin&gt; g = graph.traversal();</span><br><span class="line">==&gt;graphtraversalsource[tinkergraph[vertices:2 edges:1], standard]</span><br><span class="line">gremlin&gt; g.V().has(&quot;name&quot;, &quot;marko&quot;)</span><br><span class="line">==&gt;v[1]</span><br><span class="line">gremlin&gt; g.V().has(&apos;name&apos;,&apos;marko&apos;).outE(&apos;created&apos;)</span><br><span class="line">==&gt;e[9][1-created-&gt;3]</span><br><span class="line">gremlin&gt; g.V().has(&apos;name&apos;,&apos;marko&apos;).outE(&apos;created&apos;).inV()</span><br><span class="line">==&gt;v[3]</span><br><span class="line">gremlin&gt; g.V().has(&apos;name&apos;,&apos;marko&apos;).out(&apos;created&apos;)</span><br><span class="line">==&gt;v[3]</span><br><span class="line">gremlin&gt; g.V().has(&apos;name&apos;,&apos;marko&apos;).out(&apos;created&apos;).values(&apos;name&apos;)</span><br><span class="line">==&gt;lop</span><br></pre></td></tr></table></figure>
+<h3 id="加载数据"><a href="#加载数据" class="headerlink" title="加载数据"></a>加载数据</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ curl -L -O http://snap.stanford.edu/data/wiki-Vote.txt.gz</span><br><span class="line">$ gunzip wiki-Vote.txt.gz</span><br></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">graph = TinkerGraph.open()</span><br><span class="line">graph.createIndex(<span class="string">'userId'</span>, Vertex.<span class="keyword">class</span>) (<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">g = graph.traversal()</span><br><span class="line"></span><br><span class="line">getOrCreate = &#123; id -&gt;</span><br><span class="line">  g.V().has(<span class="string">'userId'</span>, id).tryNext().orElseGet&#123; g.addV(<span class="string">'userId'</span>, id).next() &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> File(<span class="string">'wiki-Vote.txt'</span>).eachLine &#123;</span><br><span class="line">  <span class="keyword">if</span> (!it.startsWith(<span class="string">"#"</span>))&#123;</span><br><span class="line">    (fromVertex, toVertex) = it.split(<span class="string">'\t'</span>).collect(getOrCreate) (<span class="number">2</span>)</span><br><span class="line">    fromVertex.addEdge(<span class="string">'votesFor'</span>, toVertex)</span><br><span class="line">  &#125;</span><br><span class="line">&#125; &#125; &#125;</span><br></pre></td></tr></table></figure>
+<p>在<code>Gremlin Console</code>里的运行结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">➜  apache-tinkerpop-gremlin-console-3.2.3 bin/gremlin.sh</span><br><span class="line"></span><br><span class="line">         \,,,/</span><br><span class="line">         (o o)</span><br><span class="line">-----oOOo-(3)-oOOo-----</span><br><span class="line">plugin activated: tinkerpop.server</span><br><span class="line">plugin activated: tinkerpop.utilities</span><br><span class="line">plugin activated: tinkerpop.tinkergraph</span><br><span class="line">gremlin&gt; graph = TinkerGraph.open()</span><br><span class="line">==&gt;tinkergraph[vertices:0 edges:0]</span><br><span class="line">gremlin&gt; graph.createIndex(&apos;userId&apos;, Vertex.class)</span><br><span class="line">==&gt;null</span><br><span class="line">gremlin&gt; g = graph.traversal()</span><br><span class="line">==&gt;graphtraversalsource[tinkergraph[vertices:0 edges:0], standard]</span><br><span class="line">gremlin&gt;</span><br><span class="line">gremlin&gt; getOrCreate = &#123; id -&gt;</span><br><span class="line">......1&gt;     g.V().has(&apos;userId&apos;, id).tryNext().orElseGet&#123; g.addV(&apos;userId&apos;, id).next() &#125;</span><br><span class="line">......2&gt; &#125;</span><br><span class="line">==&gt;groovysh_evaluate$_run_closure1@323e8306</span><br><span class="line">gremlin&gt; new File(&apos;../wiki-Vote.txt&apos;).eachLine &#123;</span><br><span class="line">......1&gt;     if (!it.startsWith(&quot;#&quot;))&#123;</span><br><span class="line">......2&gt;         (fromVertex, toVertex) = it.split(&apos;\t&apos;).collect(getOrCreate)</span><br><span class="line">......3&gt;         fromVertex.addEdge(&apos;votesFor&apos;, toVertex)</span><br><span class="line">......4&gt;     &#125;</span><br><span class="line">......5&gt; &#125;</span><br><span class="line">==&gt;e[117918][117916-votesFor-&gt;44907] &#125; &#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>首先为了快速查询节点，建立索引</p>
+</li>
+<li><p>在<code>wiki-Vote.txt</code>的每一行使用<code>\t</code>区分<code>from</code>、<code>to</code>顶点</p>
+</li>
+<li><p>加载更大的数据集，建议阅读<a href="http://tinkerpop.apache.org/docs/3.2.3/reference/#bulkloadervertexprogram" target="_blank" rel="noopener">BulkLoaderVertexProgram(BLVP)</a>，提供了一种可以加载任意大小数据的方法。</p>
+</li>
+</ol>
+<h3 id="Gremlin-Server"><a href="#Gremlin-Server" class="headerlink" title="Gremlin Server"></a>Gremlin Server</h3><p>下载<a href="https://www.apache.org/dyn/closer.lua/tinkerpop/3.2.3/apache-tinkerpop-gremlin-server-3.2.3-bin.zip" target="_blank" rel="noopener">Gremlin Server</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">$ unzip apache-tinkerpop-gremlin-server-3.2.3-bin.zip</span><br><span class="line">$ <span class="built_in">cd</span> apache-tinkerpop-gremlin-server-3.2.3</span><br><span class="line">$ bin/gremlin-server.sh</span><br><span class="line">[INFO] GremlinServer -</span><br><span class="line">         \,,,/</span><br><span class="line">         (o o)</span><br><span class="line">-----oOOo-(3)-oOOo-----</span><br><span class="line"></span><br><span class="line">[INFO] GremlinServer - Configuring Gremlin Server from conf/gremlin-server.yaml</span><br><span class="line">[INFO] MetricManager - Configured Metrics ConsoleReporter configured with report interval=180000ms</span><br><span class="line">[INFO] MetricManager - Configured Metrics CsvReporter configured with report interval=180000ms to fileName=/tmp/gremlin-server-metrics.csv</span><br><span class="line">[INFO] MetricManager - Configured Metrics JmxReporter configured with domain= and agentId=</span><br><span class="line">[INFO] MetricManager - Configured Metrics Slf4jReporter configured with interval=180000ms and loggerName=org.apache.tinkerpop.gremlin.server.Settings<span class="variable">$Slf4jReporterMetrics</span></span><br><span class="line">[INFO] GraphManager - Graph [graph] was successfully configured via [conf/tinkergraph-empty.properties].</span><br><span class="line">[INFO] ServerGremlinExecutor - Initialized Gremlin thread pool.  Threads <span class="keyword">in</span> pool named with pattern gremlin-*</span><br><span class="line">[INFO] ScriptEngines - Loaded gremlin-groovy ScriptEngine</span><br><span class="line">[INFO] GremlinExecutor - Initialized gremlin-groovy ScriptEngine with scripts/empty-sample.groovy</span><br><span class="line">[INFO] ServerGremlinExecutor - Initialized GremlinExecutor and configured ScriptEngines.</span><br><span class="line">[INFO] ServerGremlinExecutor - A GraphTraversalSource is now bound to [g] with graphtraversalsource[tinkergraph[vertices:0 edges:0], standard]</span><br><span class="line">[INFO] OpLoader - Adding the standard OpProcessor.</span><br><span class="line">[INFO] OpLoader - Adding the control OpProcessor.</span><br><span class="line">[INFO] OpLoader - Adding the session OpProcessor.</span><br><span class="line">[INFO] OpLoader - Adding the traversal OpProcessor.</span><br><span class="line">[INFO] TraversalOpProcessor - Initialized cache <span class="keyword">for</span> TraversalOpProcessor with size 1000 and expiration time of 600000 ms</span><br><span class="line">[INFO] GremlinServer - Executing start up LifeCycleHook</span><br><span class="line">[INFO] Logger<span class="variable">$info</span> - Executed once at startup of Gremlin Server.</span><br><span class="line">[INFO] AbstractChannelizer - Configured application/vnd.gremlin-v1.0+gryo with org.apache.tinkerpop.gremlin.driver.ser.GryoMessageSerializerV1d0</span><br><span class="line">[INFO] AbstractChannelizer - Configured application/vnd.gremlin-v1.0+gryo-lite with org.apache.tinkerpop.gremlin.driver.ser.GryoLiteMessageSerializerV1d0</span><br><span class="line">[INFO] AbstractChannelizer - Configured application/vnd.gremlin-v1.0+gryo-stringd with org.apache.tinkerpop.gremlin.driver.ser.GryoMessageSerializerV1d0</span><br><span class="line">[INFO] AbstractChannelizer - Configured application/vnd.gremlin-v1.0+json with org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerGremlinV1d0</span><br><span class="line">[INFO] AbstractChannelizer - Configured application/vnd.gremlin-v2.0+json with org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerGremlinV2d0</span><br><span class="line">[INFO] AbstractChannelizer - Configured application/json with org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0</span><br><span class="line">[INFO] GremlinServer<span class="variable">$1</span> - Gremlin Server configured with worker thread pool of 1, gremlin pool of 4 and boss thread pool of 1.</span><br><span class="line">[INFO] GremlinServer<span class="variable">$1</span> - Channel started at port 8182.</span><br></pre></td></tr></table></figure>
+<h2 id="TinkerPop-高级功能"><a href="#TinkerPop-高级功能" class="headerlink" title="TinkerPop 高级功能"></a>TinkerPop 高级功能</h2><h3 id="TinkerPop-2"><a href="#TinkerPop-2" class="headerlink" title="TinkerPop 2"></a>TinkerPop 2</h3><p><code>TinkerPop 2</code>中的组件和<code>TinkerPop 3</code>的对应关系</p>
+<p>Blueprints → Gremlin Structure API<br>Pipes → GraphTraversal<br>Frames → Traversal<br>Furnace → GraphComputer and VertexProgram<br>Rexster → GremlinServer</p>
+<h3 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h3><p>查看<code>TinkerPop</code>支持的features</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line">gremlin&gt; graph = TinkerGraph.open()</span><br><span class="line">==&gt;tinkergraph[vertices:0 edges:0]</span><br><span class="line">gremlin&gt; graph.features()</span><br><span class="line">==&gt;FEATURES</span><br><span class="line">&gt; GraphFeatures</span><br><span class="line">&gt;-- Persistence: true</span><br><span class="line">&gt;-- ConcurrentAccess: false</span><br><span class="line">&gt;-- ThreadedTransactions: false</span><br><span class="line">&gt;-- Transactions: false</span><br><span class="line">&gt;-- Computer: true</span><br><span class="line">&gt; VariableFeatures</span><br><span class="line">&gt;-- Variables: true</span><br><span class="line">&gt;-- FloatValues: true</span><br><span class="line">&gt;-- IntegerValues: true</span><br><span class="line">&gt;-- LongValues: true</span><br><span class="line">&gt;-- MapValues: true</span><br><span class="line">&gt;-- MixedListValues: true</span><br><span class="line">&gt;-- SerializableValues: true</span><br><span class="line">&gt;-- StringValues: true</span><br><span class="line">&gt;-- UniformListValues: true</span><br><span class="line">&gt;-- BooleanArrayValues: true</span><br><span class="line">&gt;-- ByteArrayValues: true</span><br><span class="line">&gt;-- DoubleArrayValues: true</span><br><span class="line">&gt;-- FloatArrayValues: true</span><br><span class="line">&gt;-- IntegerArrayValues: true</span><br><span class="line">&gt;-- LongArrayValues: true</span><br><span class="line">&gt;-- StringArrayValues: true</span><br><span class="line">&gt;-- BooleanValues: true</span><br><span class="line">&gt;-- ByteValues: true</span><br><span class="line">&gt;-- DoubleValues: true</span><br><span class="line">&gt; VertexFeatures</span><br><span class="line">&gt;-- RemoveVertices: true</span><br><span class="line">&gt;-- MultiProperties: true</span><br><span class="line">&gt;-- AddVertices: true</span><br><span class="line">&gt;-- MetaProperties: true</span><br><span class="line">&gt;-- AddProperty: true</span><br><span class="line">&gt;-- RemoveProperty: true</span><br><span class="line">&gt;-- NumericIds: true</span><br><span class="line">&gt;-- StringIds: true</span><br><span class="line">&gt;-- UuidIds: true</span><br><span class="line">&gt;-- CustomIds: false</span><br><span class="line">&gt;-- AnyIds: true</span><br><span class="line">&gt;-- UserSuppliedIds: true</span><br><span class="line">&gt; VertexPropertyFeatures</span><br><span class="line">&gt;-- AddProperty: true</span><br><span class="line">&gt;-- RemoveProperty: true</span><br><span class="line">&gt;-- NumericIds: true</span><br><span class="line">&gt;-- StringIds: true</span><br><span class="line">&gt;-- UuidIds: true</span><br><span class="line">&gt;-- CustomIds: false</span><br><span class="line">&gt;-- AnyIds: true</span><br><span class="line">&gt;-- UserSuppliedIds: true</span><br><span class="line">&gt;-- Properties: true</span><br><span class="line">&gt;-- FloatValues: true</span><br><span class="line">&gt;-- IntegerValues: true</span><br><span class="line">&gt;-- LongValues: true</span><br><span class="line">&gt;-- MapValues: true</span><br><span class="line">&gt;-- MixedListValues: true</span><br><span class="line">&gt;-- SerializableValues: true</span><br><span class="line">&gt;-- StringValues: true</span><br><span class="line">&gt;-- UniformListValues: true</span><br><span class="line">&gt;-- BooleanArrayValues: true</span><br><span class="line">&gt;-- ByteArrayValues: true</span><br><span class="line">&gt;-- DoubleArrayValues: true</span><br><span class="line">&gt;-- FloatArrayValues: true</span><br><span class="line">&gt;-- IntegerArrayValues: true</span><br><span class="line">&gt;-- LongArrayValues: true</span><br><span class="line">&gt;-- StringArrayValues: true</span><br><span class="line">&gt;-- BooleanValues: true</span><br><span class="line">&gt;-- ByteValues: true</span><br><span class="line">&gt;-- DoubleValues: true</span><br><span class="line">&gt; EdgeFeatures</span><br><span class="line">&gt;-- AddEdges: true</span><br><span class="line">&gt;-- RemoveEdges: true</span><br><span class="line">&gt;-- AddProperty: true</span><br><span class="line">&gt;-- RemoveProperty: true</span><br><span class="line">&gt;-- NumericIds: true</span><br><span class="line">&gt;-- StringIds: true</span><br><span class="line">&gt;-- UuidIds: true</span><br><span class="line">&gt;-- CustomIds: false</span><br><span class="line">&gt;-- AnyIds: true</span><br><span class="line">&gt;-- UserSuppliedIds: true</span><br><span class="line">&gt; EdgePropertyFeatures</span><br><span class="line">&gt;-- Properties: true</span><br><span class="line">&gt;-- FloatValues: true</span><br><span class="line">&gt;-- IntegerValues: true</span><br><span class="line">&gt;-- LongValues: true</span><br><span class="line">&gt;-- MapValues: true</span><br><span class="line">&gt;-- MixedListValues: true</span><br><span class="line">&gt;-- SerializableValues: true</span><br><span class="line">&gt;-- StringValues: true</span><br><span class="line">&gt;-- UniformListValues: true</span><br><span class="line">&gt;-- BooleanArrayValues: true</span><br><span class="line">&gt;-- ByteArrayValues: true</span><br><span class="line">&gt;-- DoubleArrayValues: true</span><br><span class="line">&gt;-- FloatArrayValues: true</span><br><span class="line">&gt;-- IntegerArrayValues: true</span><br><span class="line">&gt;-- LongArrayValues: true</span><br><span class="line">&gt;-- StringArrayValues: true</span><br><span class="line">&gt;-- BooleanValues: true</span><br><span class="line">&gt;-- ByteValues: true</span><br><span class="line">&gt;-- DoubleValues: true</span><br></pre></td></tr></table></figure>
+<h2 id="TinkerPop-存储"><a href="#TinkerPop-存储" class="headerlink" title="TinkerPop 存储"></a>TinkerPop 存储</h2><h3 id="TinkerGraph"><a href="#TinkerGraph" class="headerlink" title="TinkerGraph"></a>TinkerGraph</h3><p>TinkerGraph (TinkerGraph) </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.tinkerpop.blueprints<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>blueprints-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>??<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Neo4j"><a href="#Neo4j" class="headerlink" title="Neo4j"></a>Neo4j</h3><p>Neo4j Implementation (Neo4jGraph) </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.tinkerpop.blueprints<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>blueprints-neo4j-graph<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>??<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.tinkerpop.blueprints<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>blueprints-neo4j2-graph<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>??<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Neo4jHA"><a href="#Neo4jHA" class="headerlink" title="Neo4jHA"></a>Neo4jHA</h3><p>Neo4jHA Implementation (Neo4jHaGraph) </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.tinkerpop.blueprints<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>blueprints-neo4j-graph<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>??<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Neo4jBatch"><a href="#Neo4jBatch" class="headerlink" title="Neo4jBatch"></a>Neo4jBatch</h3><p>Neo4jBatch Implementation (Neo4jBatchGraph) </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.tinkerpop.blueprints<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>blueprints-neo4jbatch-graph<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>??<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Sail"><a href="#Sail" class="headerlink" title="Sail"></a>Sail</h3><p>Sail Implementation (SailGraph) </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.tinkerpop.blueprints<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>blueprints-sail-graph<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>??<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Sparksee"><a href="#Sparksee" class="headerlink" title="Sparksee"></a>Sparksee</h3><p>Sparksee Implementation (SparkseeGraph) </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.tinkerpop.blueprints<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>blueprints-sparksee-graph<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>??<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Rexster"><a href="#Rexster" class="headerlink" title="Rexster"></a>Rexster</h3><p>Rexster Implementation (RexsterGraph) </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.tinkerpop.blueprints<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>blueprints-rexster-graph<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>??<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Accumulo"><a href="#Accumulo" class="headerlink" title="Accumulo"></a>Accumulo</h3><p>Accumulo Implementation (AccumuloGraph – 3rd party – implements Blueprints 2.4.0) </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>edu.jhuapl.tinkerpop<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>blueprints-accumulo-graph<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.2.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="ArangoDB"><a href="#ArangoDB" class="headerlink" title="ArangoDB"></a>ArangoDB</h3><p>ArangoDB Implementation (ArangoDBGraph – 3rd party – implements Blueprints 2.3.0) </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.arangodb<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>blueprints-arangodb-graph<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.15<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Bitsy"><a href="#Bitsy" class="headerlink" title="Bitsy"></a>Bitsy</h3><p>Bitsy (BitsyGraph – 3rd party – implements Blueprints 2.4.0) </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.lambdazen.bitsy<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>bitsy<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.5.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Bigdata"><a href="#Bigdata" class="headerlink" title="Bigdata"></a>Bigdata</h3><p>Bigdata (BigdataGraph – 3rd party – implements Blueprints 2.5.0) </p>
+<h3 id="FluxGraph"><a href="#FluxGraph" class="headerlink" title="FluxGraph"></a>FluxGraph</h3><p>FluxGraph - Datomic Implementation (FluxGraph – 3rd party – implements Blueprints 2.1.0) </p>
+<h3 id="FoundationDB"><a href="#FoundationDB" class="headerlink" title="FoundationDB"></a>FoundationDB</h3><p>FoundationDB Implementation (FoundationDBGraph – 3rd party – implements Blueprints 2.4.0) </p>
+<h3 id="InfiniteGraph"><a href="#InfiniteGraph" class="headerlink" title="InfiniteGraph"></a>InfiniteGraph</h3><p>InfiniteGraph Implementation (IGGraph – 3rd party – implements Blueprints 2.1.0) </p>
+<h3 id="JPA"><a href="#JPA" class="headerlink" title="JPA"></a>JPA</h3><p>JPA Implementation (JpaGraph – 3rd party – implements Blueprints 2.5.0) </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.wingnest.blueprints<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>blueprints-jpa-graph<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.5.0_01<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">Repository: http://www.wingnest.com/mvn-repo/</span><br></pre></td></tr></table></figure>
+<h3 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h3><p>MongoDB Implementation (MongoDBGraph – 3rd party – implements Blueprints 2.3.0) </p>
+<h3 id="Oracle-NoSQL"><a href="#Oracle-NoSQL" class="headerlink" title="Oracle NoSQL"></a>Oracle NoSQL</h3><p>Oracle NoSQL Implementation (KVGraph – 3rd party – implements Blueprints 2.1.0) </p>
+<h3 id="OrientDB"><a href="#OrientDB" class="headerlink" title="OrientDB"></a>OrientDB</h3><p>OrientDB Implementation (OrientGraph – 3rd party – implements Blueprints 2.4.0) </p>
+<h3 id="SQL-JDBC"><a href="#SQL-JDBC" class="headerlink" title="SQL/JDBC"></a>SQL/JDBC</h3><p>SQL/JDBC Implementation – 3rd party – implements Blueprints 2.4.0) </p>
+<h3 id="Titan"><a href="#Titan" class="headerlink" title="Titan"></a>Titan</h3><p>Titan Implementation (TitanGraph – 3rd party – implements Blueprints 2.3.0)</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-05-04T04:34:39.000Z" itemprop="dateUpdated">2018年5月4日 12:34</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/2017/02/08/Apache-Tinkerpop/" target="_blank" rel="external">http://dragon-lab.github.io/2017/02/08/Apache-Tinkerpop/</a>
+    </div>
+    <footer>
+        <a href="http://dragon-lab.github.io">
+            <img src="/img/avatar.jpg" alt="Dragon">
+            Dragon
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/02/09/Life-feeling/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">生活感想</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/02/07/Learning-Apache-Camel/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Apache Camel的一些经验</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="Apache-Tinkerpop" data-title="Apache TinkerPop" data-url="http://dragon-lab.github.io/2017/02/08/Apache-Tinkerpop/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'dragon-lab', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.7');
+
+
+</script>
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Dragon Lab &copy; 2015 - 2018</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+
+</body>
+</html>

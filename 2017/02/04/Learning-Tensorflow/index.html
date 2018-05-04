@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Tensorflow 学习之路 | Dragon Lab | 天地所以能长且久者，以其不自生，故能长生。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="机器学习">
+    <meta name="description" content="Tensorflow 示例收集了一些Tensorflow可以做的一些有意思的事情：  图像风格转换,生成各种有意思的图  https://github.com/anishathalye/neural-style https://github.com/fzliu/style-transfer  给素描黑白画，自动上色https://github.com/pfnet/PaintsChainer  生成">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tensorflow 学习之路">
+<meta property="og:url" content="http://dragon-lab.github.io/2017/02/04/Learning-Tensorflow/index.html">
+<meta property="og:site_name" content="Dragon Lab">
+<meta property="og:description" content="Tensorflow 示例收集了一些Tensorflow可以做的一些有意思的事情：  图像风格转换,生成各种有意思的图  https://github.com/anishathalye/neural-style https://github.com/fzliu/style-transfer  给素描黑白画，自动上色https://github.com/pfnet/PaintsChainer  生成">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://dragon-lab.github.io/images/hhkb-keyboard.jpg">
+<meta property="og:image" content="http://dragon-lab.github.io/images/1-style.jpg">
+<meta property="og:image" content="http://dragon-lab.github.io/images/hhkb-output.jpg">
+<meta property="og:updated_time" content="2018-05-04T04:34:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tensorflow 学习之路">
+<meta name="twitter:description" content="Tensorflow 示例收集了一些Tensorflow可以做的一些有意思的事情：  图像风格转换,生成各种有意思的图  https://github.com/anishathalye/neural-style https://github.com/fzliu/style-transfer  给素描黑白画，自动上色https://github.com/pfnet/PaintsChainer  生成">
+<meta name="twitter:image" content="http://dragon-lab.github.io/images/hhkb-keyboard.jpg">
+    
+        <link rel="alternative" href="/atom.xml" title="Dragon Lab" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Dragon</h5>
+          <a href="mailto:隐藏" title="隐藏" class="mail">隐藏</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/dragon-lab" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Tensorflow 学习之路</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Tensorflow 学习之路</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-04T02:47:11.000Z" itemprop="datePublished" class="page-time">
+  2017-02-04
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Tensorflow-示例"><span class="post-toc-number">1.</span> <span class="post-toc-text">Tensorflow 示例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Tensorflow-资料"><span class="post-toc-number">2.</span> <span class="post-toc-text">Tensorflow 资料</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Tensorflow-安装"><span class="post-toc-number">3.</span> <span class="post-toc-text">Tensorflow 安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#源代码安装"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">源代码安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#获取源代码"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">获取源代码</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#准备安装环境"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">准备安装环境</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#配置安装"><span class="post-toc-number">3.1.3.</span> <span class="post-toc-text">配置安装</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#编译安装"><span class="post-toc-number">3.1.4.</span> <span class="post-toc-text">编译安装</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#测试"><span class="post-toc-number">3.1.5.</span> <span class="post-toc-text">测试</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Tensorflow-体验"><span class="post-toc-number">4.</span> <span class="post-toc-text">Tensorflow 体验</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#neural-style"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">neural-style</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#下载源代码"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">下载源代码</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#下载训练集"><span class="post-toc-number">4.1.2.</span> <span class="post-toc-text">下载训练集</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安装Python依赖"><span class="post-toc-number">4.1.3.</span> <span class="post-toc-text">安装Python依赖</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#运行应用"><span class="post-toc-number">4.1.4.</span> <span class="post-toc-text">运行应用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查看结果"><span class="post-toc-number">4.1.5.</span> <span class="post-toc-text">查看结果</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Learning-Tensorflow"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Tensorflow 学习之路</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年02月04日 10:47" datetime="2017-02-04T02:47:11.000Z"  itemprop="datePublished">2017-02-04</time>
+
+            
+
+
+            
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="Tensorflow-示例"><a href="#Tensorflow-示例" class="headerlink" title="Tensorflow 示例"></a>Tensorflow 示例</h2><p>收集了一些Tensorflow可以做的一些有意思的事情：</p>
+<ol>
+<li><p>图像风格转换,生成各种有意思的图</p>
+<p> <a href="https://github.com/anishathalye/neural-style" target="_blank" rel="noopener">https://github.com/anishathalye/neural-style</a><br> <a href="https://github.com/fzliu/style-transfer" target="_blank" rel="noopener">https://github.com/fzliu/style-transfer</a></p>
+</li>
+<li><p>给素描黑白画，自动上色<br><a href="https://github.com/pfnet/PaintsChainer" target="_blank" rel="noopener">https://github.com/pfnet/PaintsChainer</a></p>
+</li>
+<li><p>生成古诗词：基于RNN生成古诗词<br><a href="http://blog.topspeedsnail.com/archives/10542" target="_blank" rel="noopener">http://blog.topspeedsnail.com/archives/10542</a></p>
+</li>
+<li><p>结合RL玩游戏的，愤怒的小鸟，超级马里奥<br><a href="https://github.com/yenchenlin/DeepLearningFlappyBird" target="_blank" rel="noopener">https://github.com/yenchenlin/DeepLearningFlappyBird</a></p>
+</li>
+<li><p>用TensorFlow实现MarioKart游戏自动驾驶<br><a href="https://github.com/kevinhughes27/TensorKart" target="_blank" rel="noopener">https://github.com/kevinhughes27/TensorKart</a></p>
+</li>
+<li><p>Udacity自驾模拟项目Nanodegree<br><a href="https://github.com/upul/behavioral_cloning" target="_blank" rel="noopener">https://github.com/upul/behavioral_cloning</a></p>
+</li>
+</ol>
+<h2 id="Tensorflow-资料"><a href="#Tensorflow-资料" class="headerlink" title="Tensorflow 资料"></a>Tensorflow 资料</h2><ol>
+<li>Tensorflow从入门到精通<br><a href="https://github.com/aymericdamien/TensorFlow-Examples" target="_blank" rel="noopener">https://github.com/aymericdamien/TensorFlow-Examples</a></li>
+</ol>
+<h2 id="Tensorflow-安装"><a href="#Tensorflow-安装" class="headerlink" title="Tensorflow 安装"></a>Tensorflow 安装</h2><h3 id="源代码安装"><a href="#源代码安装" class="headerlink" title="源代码安装"></a>源代码安装</h3><h4 id="获取源代码"><a href="#获取源代码" class="headerlink" title="获取源代码"></a>获取源代码</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/tensorflow/tensorflow</span><br></pre></td></tr></table></figure>
+<h4 id="准备安装环境"><a href="#准备安装环境" class="headerlink" title="准备安装环境"></a>准备安装环境</h4><p>在Mac上安装bazel，建议使用<a href="http://brew.sh/" target="_blank" rel="noopener">homebrew</a>安装依赖</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install bazel</span><br></pre></td></tr></table></figure>
+<p>可以使用easy_install或pip安装python依赖，如果使用easy_install运行下面的命令:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo easy_install -U six</span><br><span class="line">$ sudo easy_install -U numpy</span><br><span class="line">$ sudo easy_install wheel</span><br></pre></td></tr></table></figure></p>
+<p>推荐使用<a href="https://ipython.org/" target="_blank" rel="noopener">ipython</a>，运行下面的命令安装：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo easy_install ipython</span><br></pre></td></tr></table></figure></p>
+<h4 id="配置安装"><a href="#配置安装" class="headerlink" title="配置安装"></a>配置安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">$ ./configure</span><br><span class="line">Please specify the location of python. [Default is /usr/<span class="built_in">local</span>/bin/python]:</span><br><span class="line">Please specify optimization flags to use during compilation when bazel option <span class="string">"--config=opt"</span> is specified [Default is -march=native]:</span><br><span class="line">Do you wish to build TensorFlow with Google Cloud Platform support? [y/N]</span><br><span class="line">No Google Cloud Platform support will be enabled <span class="keyword">for</span> TensorFlow</span><br><span class="line">Do you wish to build TensorFlow with Hadoop File System support? [y/N]</span><br><span class="line">No Hadoop File System support will be enabled <span class="keyword">for</span> TensorFlow</span><br><span class="line">Do you wish to build TensorFlow with the XLA just-in-time compiler (experimental)? [y/N]</span><br><span class="line">No XLA support will be enabled <span class="keyword">for</span> TensorFlow</span><br><span class="line">Found possible Python library paths:</span><br><span class="line">  /usr/<span class="built_in">local</span>/Cellar/python/2.7.12_2/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages</span><br><span class="line">  /Library/Python/2.7/site-packages</span><br><span class="line">Please input the desired Python library path to use.  Default is [/usr/<span class="built_in">local</span>/Cellar/python/2.7.12_2/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages]</span><br><span class="line"></span><br><span class="line">Using python library path: /usr/<span class="built_in">local</span>/Cellar/python/2.7.12_2/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages</span><br><span class="line">Do you wish to build TensorFlow with OpenCL support? [y/N]</span><br><span class="line">No OpenCL support will be enabled <span class="keyword">for</span> TensorFlow</span><br><span class="line">Do you wish to build TensorFlow with CUDA support? [y/N]</span><br><span class="line">No CUDA support will be enabled <span class="keyword">for</span> TensorFlow</span><br><span class="line">Configuration finished</span><br><span class="line">INFO: Starting clean (this may take a <span class="keyword">while</span>). Consider using --expunge_async <span class="keyword">if</span> the clean takes more than several minutes.</span><br><span class="line">..........</span><br><span class="line">INFO: All external dependencies fetched successfully.</span><br></pre></td></tr></table></figure>
+<h4 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ bazel build -c opt //tensorflow/tools/pip_package:build_pip_package</span><br><span class="line"></span><br><span class="line">$ bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg</span><br><span class="line"></span><br><span class="line"><span class="comment"># The name of the .whl file will depend on your platform.</span></span><br><span class="line">$ pip install /tmp/tensorflow_pkg/tensorflow-0.12.1-cp27-cp27m-macosx_10_11_x86_64.whl</span><br></pre></td></tr></table></figure>
+<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>hello = tf.constant(<span class="string">'Hello, TensorFlow!'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sess = tf.Session()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sess.run(hello)</span><br><span class="line">Hello, TensorFlow!</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = tf.constant(<span class="number">10</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = tf.constant(<span class="number">32</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sess.run(a+b)</span><br><span class="line"><span class="number">42</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="Tensorflow-体验"><a href="#Tensorflow-体验" class="headerlink" title="Tensorflow 体验"></a>Tensorflow 体验</h2><h3 id="neural-style"><a href="#neural-style" class="headerlink" title="neural-style"></a>neural-style</h3><h4 id="下载源代码"><a href="#下载源代码" class="headerlink" title="下载源代码"></a>下载源代码</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/anishathalye/neural-style.git</span><br><span class="line"></span><br><span class="line">$ <span class="built_in">cd</span> neural-style</span><br></pre></td></tr></table></figure>
+<h4 id="下载训练集"><a href="#下载训练集" class="headerlink" title="下载训练集"></a>下载训练集</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -O http://www.vlfeat.org/matconvnet/models/beta16/imagenet-vgg-verydeep-19.mat</span><br></pre></td></tr></table></figure>
+<h4 id="安装Python依赖"><a href="#安装Python依赖" class="headerlink" title="安装Python依赖"></a>安装Python依赖</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ pip install numpy</span><br><span class="line">$ pip install scipy</span><br><span class="line">$ pip install pillow</span><br></pre></td></tr></table></figure>
+<h4 id="运行应用"><a href="#运行应用" class="headerlink" title="运行应用"></a>运行应用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python neural_style.py --content examples/1-content.jpg --styles examples/1-style.jpg --output output.jpg --iterations 1000</span><br></pre></td></tr></table></figure>
+<p>运行太慢的话，可以考虑缩小图片大小，或者升级机器配置。</p>
+<h4 id="查看结果"><a href="#查看结果" class="headerlink" title="查看结果"></a>查看结果</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/hhkb-keyboard.jpg" alt="原图" title="">
+                </div>
+                <div class="image-caption">原图</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/1-style.jpg" alt="样式图" title="">
+                </div>
+                <div class="image-caption">样式图</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/hhkb-output.jpg" alt="结果图" title="">
+                </div>
+                <div class="image-caption">结果图</div>
+            </figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-05-04T04:34:39.000Z" itemprop="dateUpdated">2018年5月4日 12:34</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/2017/02/04/Learning-Tensorflow/" target="_blank" rel="external">http://dragon-lab.github.io/2017/02/04/Learning-Tensorflow/</a>
+    </div>
+    <footer>
+        <a href="http://dragon-lab.github.io">
+            <img src="/img/avatar.jpg" alt="Dragon">
+            Dragon
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/02/04/Mysql-Database-Optimization/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Mysql数据库优化的一些思路</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/02/03/software-architecture/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">软件架构模式</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="Learning-Tensorflow" data-title="Tensorflow 学习之路" data-url="http://dragon-lab.github.io/2017/02/04/Learning-Tensorflow/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'dragon-lab', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.7');
+
+
+</script>
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Dragon Lab &copy; 2015 - 2018</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+
+</body>
+</html>

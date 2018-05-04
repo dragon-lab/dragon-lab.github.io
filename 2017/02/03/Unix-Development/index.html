@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Linux系统开发学习 | Dragon Lab | 天地所以能长且久者，以其不自生，故能长生。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Linux">
+    <meta name="description" content="环境搭建centos 7 下安装开发环境，运行下面的命令 1$ yum groupinstall -y &quot;Development Tools&quot; 工具学习GDB编译程序加上-g选项，这样编译出的可执行程序中包含调试信息，否则之后GDB无法载入可执行文件中对应的代码信息。 1$ gcc -g test.c -o test 启动gdb进行调试 123456789101112$ gdb testGNU g">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux系统开发学习">
+<meta property="og:url" content="http://dragon-lab.github.io/2017/02/03/Unix-Development/index.html">
+<meta property="og:site_name" content="Dragon Lab">
+<meta property="og:description" content="环境搭建centos 7 下安装开发环境，运行下面的命令 1$ yum groupinstall -y &quot;Development Tools&quot; 工具学习GDB编译程序加上-g选项，这样编译出的可执行程序中包含调试信息，否则之后GDB无法载入可执行文件中对应的代码信息。 1$ gcc -g test.c -o test 启动gdb进行调试 123456789101112$ gdb testGNU g">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-05-04T04:34:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux系统开发学习">
+<meta name="twitter:description" content="环境搭建centos 7 下安装开发环境，运行下面的命令 1$ yum groupinstall -y &quot;Development Tools&quot; 工具学习GDB编译程序加上-g选项，这样编译出的可执行程序中包含调试信息，否则之后GDB无法载入可执行文件中对应的代码信息。 1$ gcc -g test.c -o test 启动gdb进行调试 123456789101112$ gdb testGNU g">
+    
+        <link rel="alternative" href="/atom.xml" title="Dragon Lab" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Dragon</h5>
+          <a href="mailto:隐藏" title="隐藏" class="mail">隐藏</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/dragon-lab" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Linux系统开发学习</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Linux系统开发学习</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-03T03:51:48.000Z" itemprop="datePublished" class="page-time">
+  2017-02-03
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#环境搭建"><span class="post-toc-number">1.</span> <span class="post-toc-text">环境搭建</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#工具学习"><span class="post-toc-number">2.</span> <span class="post-toc-text">工具学习</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#GDB"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">GDB</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Makefile"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Makefile</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#链接库"><span class="post-toc-number">3.</span> <span class="post-toc-text">链接库</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#静态库"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">静态库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#动态库"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">动态库</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#内存管理"><span class="post-toc-number">4.</span> <span class="post-toc-text">内存管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#malloc"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">malloc</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ptmalloc"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">ptmalloc</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#tcmalloc"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">tcmalloc</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#jemalloc"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">jemalloc</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#文件I-O"><span class="post-toc-number">5.</span> <span class="post-toc-text">文件I/O</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#线程"><span class="post-toc-number">6.</span> <span class="post-toc-text">线程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#进程"><span class="post-toc-number">7.</span> <span class="post-toc-text">进程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#管道"><span class="post-toc-number">8.</span> <span class="post-toc-text">管道</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#信号"><span class="post-toc-number">9.</span> <span class="post-toc-text">信号</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#网络"><span class="post-toc-number">10.</span> <span class="post-toc-text">网络</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Unix-Development"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Linux系统开发学习</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年02月03日 11:51" datetime="2017-02-03T03:51:48.000Z"  itemprop="datePublished">2017-02-03</time>
+
+            
+
+
+            
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>centos 7 下安装开发环境，运行下面的命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum groupinstall -y <span class="string">"Development Tools"</span></span><br></pre></td></tr></table></figure>
+<h2 id="工具学习"><a href="#工具学习" class="headerlink" title="工具学习"></a>工具学习</h2><h3 id="GDB"><a href="#GDB" class="headerlink" title="GDB"></a>GDB</h3><p>编译程序加上<code>-g</code>选项，这样编译出的可执行程序中包含调试信息，否则之后GDB无法载入可执行文件中对应的代码信息。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gcc -g test.c -o <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+<p>启动gdb进行调试</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ gdb <span class="built_in">test</span></span><br><span class="line">GNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-94.el7</span><br><span class="line">Copyright (C) 2013 Free Software Foundation, Inc.</span><br><span class="line">License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;</span><br><span class="line">This is free software: you are free to change and redistribute it.</span><br><span class="line">There is NO WARRANTY, to the extent permitted by law.  Type <span class="string">"show copying"</span></span><br><span class="line">and <span class="string">"show warranty"</span> <span class="keyword">for</span> details.</span><br><span class="line">This GDB was configured as <span class="string">"x86_64-redhat-linux-gnu"</span>.</span><br><span class="line">For bug reporting instructions, please see:</span><br><span class="line">&lt;http://www.gnu.org/software/gdb/bugs/&gt;...</span><br><span class="line">Reading symbols from /root/chapter03/test...done.</span><br><span class="line">(gdb)</span><br></pre></td></tr></table></figure>
+<p>查看文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(Gdb) l</span><br></pre></td></tr></table></figure>
+<p>设置断点</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(gdb) b 6</span><br><span class="line">Breakpoint 1 at 0x400585: file test.c, line 6.</span><br></pre></td></tr></table></figure>
+<p>需要注意的时，代码并没有运行第6行，而是在运行第6行之前就停止了。</p>
+<p>查看断点情况</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(gdb) info b</span><br><span class="line">Num     Type           Disp Enb Address            What</span><br><span class="line">1       breakpoint     keep y   0x0000000000400585 <span class="keyword">in</span> main at test.c:6</span><br></pre></td></tr></table></figure>
+<p>运行代码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(gdb) r</span><br><span class="line">Starting program: /root/chapter03/<span class="built_in">test</span></span><br><span class="line"></span><br><span class="line">Breakpoint 1, main () at test.c:6</span><br><span class="line">6    int i, n = 0;</span><br><span class="line">Missing separate debuginfos , use: debuginfo-install glibc-2.17-157.el7_3.1.x86_64</span><br></pre></td></tr></table></figure>
+<p>查看变量值</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(gdb) p n</span><br><span class="line"><span class="variable">$1</span> = 0</span><br></pre></td></tr></table></figure>
+<p>单步运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(gdb) n</span><br><span class="line">8    ret = sum(50);</span><br></pre></td></tr></table></figure>
+<p>恢复程序运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(gdb) c</span><br><span class="line">Continuing.</span><br><span class="line">The sum of 1-m is 50</span><br><span class="line">The sum of 1-50 is 50</span><br><span class="line">[Inferior 1 (process 21754) exited normally]</span><br></pre></td></tr></table></figure>
+<p>程序在运行完后退出，之后程序处于“停止状态”</p>
+<h3 id="Makefile"><a href="#Makefile" class="headerlink" title="Makefile"></a>Makefile</h3><h2 id="链接库"><a href="#链接库" class="headerlink" title="链接库"></a>链接库</h2><p>在创建函数库之前，先准备下示例代码</p>
+<figure class="highlight c"><figcaption><span>hello.h</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">hello</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *name)</span></span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><figcaption><span>hello.c</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">hello</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *name)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Hello %s!\n"</span>, name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><figcaption><span>main.c</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"hello.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    hello(<span class="string">"everyone"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>将<code>hello.c</code>编译成<code>hello.o</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ gcc -c hello.c</span><br><span class="line"></span><br><span class="line">$ ls</span><br><span class="line">hello.c  hello.h  hello.o  main.c</span><br></pre></td></tr></table></figure>
+<h3 id="静态库"><a href="#静态库" class="headerlink" title="静态库"></a>静态库</h3><p>由<code>hello.o</code>创建静态库</p>
+<p>静态库的命名规范是以lib为前缀，紧接着跟静态库名，扩展名为<code>.a</code>。例如，将创建的静态库名为<code>myhello</code>，则静态库文件名就是<code>libmyhello.a</code>。</p>
+<p>使用<code>ar</code>命令创建静态库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ar crv libmyhello.a hello.o</span><br><span class="line"></span><br><span class="line">$ ls</span><br><span class="line">hello.c  hello.h  hello.o  libmyhello.a  main.c</span><br></pre></td></tr></table></figure>
+<p>在程序中使用静态库时，需要引入源程序中包含的公共函数。例如在<code>main.c</code>中<code>#include &quot;hello.h&quot;</code>。</p>
+<p>注意：gcc会在静态库名前加上前缀lib，然后用追加扩展名.a，得到的静态库文件名来查找静态文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ gcc -o hello main.c -L. -lmyhello</span><br><span class="line"></span><br><span class="line">$ ls</span><br><span class="line">hello  hello.c  hello.h  hello.o  libmyhello.a  main.c</span><br><span class="line"></span><br><span class="line">$ ./hello</span><br><span class="line">Hello everyone</span><br><span class="line"></span><br><span class="line">$ gcc main.c libmyhello.a -o main</span><br><span class="line">hello  hello.c  hello.h  hello.o  libmyhello.a  main  main.c</span><br><span class="line"></span><br><span class="line">$ ./main</span><br><span class="line">Hello everyone</span><br></pre></td></tr></table></figure>
+<p>删除静态库文件测试公共函数hello是否真的连接到目标文件hello中了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ rm libmyhello.a</span><br><span class="line"></span><br><span class="line">$ ls</span><br><span class="line">hello  hello.c  hello.h  hello.o  main  main.c</span><br><span class="line"></span><br><span class="line">$ ./hello</span><br><span class="line">Hello everyone</span><br></pre></td></tr></table></figure>
+<p>程序正常运行，可见静态库中使用的函数已经连接到目标文件中了。</p>
+<h3 id="动态库"><a href="#动态库" class="headerlink" title="动态库"></a>动态库</h3><p>在创建动态链接库之前把前面生成的文件先删除掉，避免混淆。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ls</span><br><span class="line">hello.c  hello.h  main.c</span><br></pre></td></tr></table></figure>
+<p>动态库文件名命名规范和静态库文件名命名规范累死，也是在动态库名增加前缀<code>lib</code>，但其文件扩展名为<code>.so</code>。例如将创建的动态库名为<code>myhello</code>，则动态库文件名就是<code>libmyhello.so</code>。</p>
+<p>使用gcc创建动态库，输入一下命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ gcc hello.c -shared -fPIC -o libmyhello.so</span><br><span class="line"></span><br><span class="line">$ ls</span><br><span class="line">hello.c  hello.h  hello.o  libmyhello.so  main.c</span><br></pre></td></tr></table></figure>
+<p>在程序中使用动态库，使用下面的命令进行编译</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ gcc -o hello main.c -L. -lmyhello</span><br><span class="line"></span><br><span class="line">$ ./hello</span><br><span class="line">./hello: error <span class="keyword">while</span> loading shared libraries: libmyhello.so: cannot open shared object file: No such file or directory</span><br></pre></td></tr></table></figure>
+<p>程序运行出错，提示找不到<code>libmyhello.so</code>。程序运行时，会在 <code>/usr/lib</code> 和 <code>/lib</code> 等目录中查找需要的动态库文件。 若找到则载入动态库，否则提示类似上述错误而终止程序运行。 将文件 <code>libmyhello.so</code> 复制到目录 <code>/usr/lib</code> 中再试试。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ cp libmyhello.so /usr/lib</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果是x64系统则复制到 /usr/lib64 下</span></span><br><span class="line">$ cp libmyhello.so /usr/lib64</span><br><span class="line"></span><br><span class="line">$ ./hello</span><br><span class="line">Hello everyone</span><br></pre></td></tr></table></figure>
+<p>程序运行成功，说明了动态库在程序运行时是需要的。</p>
+<p>当静态库和动态库同时存在时，程序优先使用动态库。</p>
+<h2 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h2><h3 id="malloc"><a href="#malloc" class="headerlink" title="malloc"></a>malloc</h3><p>From system</p>
+<h3 id="ptmalloc"><a href="#ptmalloc" class="headerlink" title="ptmalloc"></a>ptmalloc</h3><p>From glibc</p>
+<h3 id="tcmalloc"><a href="#tcmalloc" class="headerlink" title="tcmalloc"></a>tcmalloc</h3><p>From Google</p>
+<h3 id="jemalloc"><a href="#jemalloc" class="headerlink" title="jemalloc"></a>jemalloc</h3><p>From Google</p>
+<h2 id="文件I-O"><a href="#文件I-O" class="headerlink" title="文件I/O"></a>文件I/O</h2><h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><h2 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h2><h2 id="信号"><a href="#信号" class="headerlink" title="信号"></a>信号</h2><h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-05-04T04:34:39.000Z" itemprop="dateUpdated">2018年5月4日 12:34</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/2017/02/03/Unix-Development/" target="_blank" rel="external">http://dragon-lab.github.io/2017/02/03/Unix-Development/</a>
+    </div>
+    <footer>
+        <a href="http://dragon-lab.github.io">
+            <img src="/img/avatar.jpg" alt="Dragon">
+            Dragon
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/02/03/software-architecture/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">软件架构模式</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/02/03/Base-Architecture/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">集成开发平台架构</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="Unix-Development" data-title="Linux系统开发学习" data-url="http://dragon-lab.github.io/2017/02/03/Unix-Development/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'dragon-lab', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.7');
+
+
+</script>
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Dragon Lab &copy; 2015 - 2018</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+
+</body>
+</html>

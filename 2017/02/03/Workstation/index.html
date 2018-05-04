@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>组建自己的工作站 | Dragon Lab | 天地所以能长且久者，以其不自生，故能长生。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="苹果的Macbook Pro的8g内存（2016年发布会也没有推出32g版）运行一些需要集群环境的程序比较吃力，例如Spark、Openshift、Fabric8。调研了下配置较高的云服务器价格又略贵，所以萌生了自己组装一台工作站的想法。 需求 内存64g，且易于扩展 CPU 核心多，可以跑虚拟机模拟集群环境。 可以黑苹果，个人比较习惯Mac系统 PCI-E x16 接口丰富  硬件环境   项目">
+<meta property="og:type" content="article">
+<meta property="og:title" content="组建自己的工作站">
+<meta property="og:url" content="http://dragon-lab.github.io/2017/02/03/Workstation/index.html">
+<meta property="og:site_name" content="Dragon Lab">
+<meta property="og:description" content="苹果的Macbook Pro的8g内存（2016年发布会也没有推出32g版）运行一些需要集群环境的程序比较吃力，例如Spark、Openshift、Fabric8。调研了下配置较高的云服务器价格又略贵，所以萌生了自己组装一台工作站的想法。 需求 内存64g，且易于扩展 CPU 核心多，可以跑虚拟机模拟集群环境。 可以黑苹果，个人比较习惯Mac系统 PCI-E x16 接口丰富  硬件环境   项目">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://dragon-lab.github.io/images/power-1.jpg">
+<meta property="og:image" content="http://dragon-lab.github.io/images/power-2.jpg">
+<meta property="og:image" content="http://dragon-lab.github.io/images/power-3.jpg">
+<meta property="og:image" content="http://dragon-lab.github.io/images/cpu01.jpg">
+<meta property="og:image" content="http://dragon-lab.github.io/images/memory.jpg">
+<meta property="og:image" content="http://dragon-lab.github.io/images/board01.jpg">
+<meta property="og:image" content="http://dragon-lab.github.io/images/board02.jpg">
+<meta property="og:image" content="http://dragon-lab.github.io/images/crate01.jpg">
+<meta property="og:image" content="http://dragon-lab.github.io/images/crate02.jpg">
+<meta property="og:image" content="http://dragon-lab.github.io/images/radiator.jpg">
+<meta property="og:image" content="http://dragon-lab.github.io/images/hhkb-keyboard.jpg">
+<meta property="og:image" content="http://dragon-lab.github.io/images/download-macos-sierra.png">
+<meta property="og:image" content="http://dragon-lab.github.io/images/formatter-usb-boot-device.png">
+<meta property="og:image" content="http://dragon-lab.github.io/images/formatter-usb-boot-device2.png">
+<meta property="og:image" content="http://dragon-lab.github.io/images/selected-usb.png">
+<meta property="og:image" content="http://dragon-lab.github.io/images/selected-installation-type.png">
+<meta property="og:image" content="http://dragon-lab.github.io/images/bootloader-configuration.png">
+<meta property="og:image" content="http://dragon-lab.github.io/images/graph-device.png">
+<meta property="og:image" content="http://dragon-lab.github.io/images/copying-files.png">
+<meta property="og:image" content="http://dragon-lab.github.io/images/multibeast.png">
+<meta property="og:updated_time" content="2018-05-04T04:34:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="组建自己的工作站">
+<meta name="twitter:description" content="苹果的Macbook Pro的8g内存（2016年发布会也没有推出32g版）运行一些需要集群环境的程序比较吃力，例如Spark、Openshift、Fabric8。调研了下配置较高的云服务器价格又略贵，所以萌生了自己组装一台工作站的想法。 需求 内存64g，且易于扩展 CPU 核心多，可以跑虚拟机模拟集群环境。 可以黑苹果，个人比较习惯Mac系统 PCI-E x16 接口丰富  硬件环境   项目">
+<meta name="twitter:image" content="http://dragon-lab.github.io/images/power-1.jpg">
+    
+        <link rel="alternative" href="/atom.xml" title="Dragon Lab" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Dragon</h5>
+          <a href="mailto:隐藏" title="隐藏" class="mail">隐藏</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/dragon-lab" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">组建自己的工作站</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">组建自己的工作站</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-03T02:38:12.000Z" itemprop="datePublished" class="page-time">
+  2017-02-03
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#需求"><span class="post-toc-number">1.</span> <span class="post-toc-text">需求</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#硬件环境"><span class="post-toc-number">2.</span> <span class="post-toc-text">硬件环境</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#电源"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">电源</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#CPU"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">CPU</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#内存"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">内存</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#主板"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">主板</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#显卡"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">显卡</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#机箱"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">机箱</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#散热器"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">散热器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#键盘"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">键盘</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#macos-sierra"><span class="post-toc-number">3.</span> <span class="post-toc-text">macos sierra</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#下载基础工具"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">下载基础工具</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#制作USB启动工具"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">制作USB启动工具</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#BIOS设置"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">BIOS设置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装macos-sierra"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">安装macos sierra</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#MultiBeast设置引导"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">MultiBeast设置引导</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#常见问题和优化"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">常见问题和优化</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Workstation"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">组建自己的工作站</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年02月03日 10:38" datetime="2017-02-03T02:38:12.000Z"  itemprop="datePublished">2017-02-03</time>
+
+            
+
+
+            
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>苹果的<code>Macbook Pro</code>的<code>8g</code>内存（2016年发布会也没有推出32g版）运行一些需要集群环境的程序比较吃力，例如<code>Spark</code>、<code>Openshift</code>、<code>Fabric8</code>。调研了下配置较高的云服务器价格又略贵，所以萌生了自己组装一台工作站的想法。</p>
+<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><ol>
+<li>内存64g，且易于扩展</li>
+<li>CPU 核心多，可以跑虚拟机模拟集群环境。</li>
+<li>可以黑苹果，个人比较习惯Mac系统</li>
+<li>PCI-E x16 接口丰富</li>
+</ol>
+<h2 id="硬件环境"><a href="#硬件环境" class="headerlink" title="硬件环境"></a>硬件环境</h2><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>名称</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU</td>
+<td>Xeon E5 2683 v3 * 2</td>
+</tr>
+<tr>
+<td>主板</td>
+<td>Intel S2600CW2R</td>
+</tr>
+<tr>
+<td>内存</td>
+<td>三星 DDR4 ECC 32g * 2</td>
+</tr>
+<tr>
+<td>显卡</td>
+<td>Asus R9 270</td>
+</tr>
+<tr>
+<td>网卡</td>
+<td>TP-LINK TL-WDN4800</td>
+</tr>
+<tr>
+<td>电源</td>
+<td>海韵（Seasonic）额定620W M12II-620 电源</td>
+</tr>
+<tr>
+<td>机箱</td>
+<td>银欣乌鸦3</td>
+</tr>
+<tr>
+<td>散热器</td>
+<td>九州风神大霜塔 * 2</td>
+</tr>
+<tr>
+<td>键盘</td>
+<td>HHKB PRO2</td>
+</tr>
+<tr>
+<td>硬盘</td>
+<td>SSD 128g + 4TB 黑盘</td>
+</tr>
+</tbody>
+</table>
+<h3 id="电源"><a href="#电源" class="headerlink" title="电源"></a>电源</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/power-1.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/power-2.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/power-3.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/cpu01.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/memory.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="主板"><a href="#主板" class="headerlink" title="主板"></a>主板</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/board01.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/board02.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="显卡"><a href="#显卡" class="headerlink" title="显卡"></a>显卡</h3><h3 id="机箱"><a href="#机箱" class="headerlink" title="机箱"></a>机箱</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/crate01.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/crate02.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="散热器"><a href="#散热器" class="headerlink" title="散热器"></a>散热器</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/radiator.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="键盘"><a href="#键盘" class="headerlink" title="键盘"></a>键盘</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/hhkb-keyboard.jpg" alt="HHKB-Pro2" title="">
+                </div>
+                <div class="image-caption">HHKB-Pro2</div>
+            </figure>
+<p>HHKB没有实体方向键，在VIM下没有什么影响，在Mac下也有一些快捷键可以代替方向键，总之习惯后非常好用。</p>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl+p</td>
+<td>shell中上一个命令,或者 文本中移动到上一行</td>
+</tr>
+<tr>
+<td>Ctrl+n</td>
+<td>shell中下一个命令,或者 文本中移动到下一行</td>
+</tr>
+<tr>
+<td>Ctrl+r</td>
+<td>往后搜索历史命令</td>
+</tr>
+<tr>
+<td>Ctrl+s</td>
+<td>往前搜索历史命令</td>
+</tr>
+<tr>
+<td>Ctrl+f</td>
+<td>光标前移</td>
+</tr>
+<tr>
+<td>Ctrl+b</td>
+<td>光标后退</td>
+</tr>
+<tr>
+<td>Ctrl+a</td>
+<td>到行首</td>
+</tr>
+<tr>
+<td>Ctrl+e</td>
+<td>到行尾</td>
+</tr>
+<tr>
+<td>Ctrl+d</td>
+<td>删除一个字符,删除一个字符，相当于通常的Delete键</td>
+</tr>
+<tr>
+<td>Ctrl+h</td>
+<td>退格删除一个字符,相当于通常的Backspace键</td>
+</tr>
+<tr>
+<td>Ctrl+u</td>
+<td>删除到行首</td>
+</tr>
+<tr>
+<td>Ctrl+k</td>
+<td>删除到行尾</td>
+</tr>
+<tr>
+<td>Ctrl+l</td>
+<td>类似 clear 命令效果</td>
+</tr>
+</tbody>
+</table>
+<h2 id="macos-sierra"><a href="#macos-sierra" class="headerlink" title="macos sierra"></a>macos sierra</h2><pre><code>这里需要说明的是黑苹果安装是不被苹果允许的
+</code></pre><h3 id="下载基础工具"><a href="#下载基础工具" class="headerlink" title="下载基础工具"></a>下载基础工具</h3><ol>
+<li><p>从<code>App Store</code>中下载<code>macos sierra</code></p>
+</li>
+<li><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/download-macos-sierra.png" alt="Download-macos" title="">
+                </div>
+                <div class="image-caption">Download-macos</div>
+            </figure>
+</li>
+<li><p>下载<a href="/assets/UniBeast-7.0.1.zip">Unibeast</a>，用于制作U盘镜像。</p>
+</li>
+<li><p>下载<a href="/assets/MultiBeast-Sierra-Edition-9.0.1.zip">MultiBeast-Sierra-Edition</a></p>
+</li>
+</ol>
+<h3 id="制作USB启动工具"><a href="#制作USB启动工具" class="headerlink" title="制作USB启动工具"></a>制作USB启动工具</h3><ol>
+<li><p>格式化USB设备（U盘）</p>
+<p> <img src="/images/formatter-usb-boot-device.png" alt=""></p>
+<p> <img src="/images/formatter-usb-boot-device2.png" alt=""></p>
+</li>
+<li><p>使用Unibeast制作U盘镜像</p>
+<p> <img src="/images/selected-usb.png" alt=""></p>
+<p> <img src="/images/selected-installation-type.png" alt=""></p>
+<p> <img src="/images/bootloader-configuration.png" alt=""></p>
+<p> 如果主板支持UEFI引导，则选择第一个，不支持则选择第二个。</p>
+<p> <img src="/images/graph-device.png" alt=""></p>
+<p> 选择显卡驱动</p>
+<p> <img src="/images/copying-files.png" alt=""></p>
+<p> 这个地方很慢，要耐心等..</p>
+</li>
+</ol>
+<h3 id="BIOS设置"><a href="#BIOS设置" class="headerlink" title="BIOS设置"></a>BIOS设置</h3><ol>
+<li><p>载入Optimized Defaults设置</p>
+</li>
+<li><p>打开AHCI选项，不然安装过程中可能识别不了硬盘</p>
+</li>
+<li><p>如果CPU支持VT-d，禁用掉</p>
+</li>
+<li><p>保存并且退出</p>
+</li>
+</ol>
+<h3 id="安装macos-sierra"><a href="#安装macos-sierra" class="headerlink" title="安装macos sierra"></a>安装macos sierra</h3><p>正常的macos安装过程，没有特别的异常，不多做说明</p>
+<h3 id="MultiBeast设置引导"><a href="#MultiBeast设置引导" class="headerlink" title="MultiBeast设置引导"></a>MultiBeast设置引导</h3><ul>
+<li>勾选好需要的驱动程直接点击安装就好了， 整个过程比较顺利<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/multibeast.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+</li>
+</ul>
+<h3 id="常见问题和优化"><a href="#常见问题和优化" class="headerlink" title="常见问题和优化"></a>常见问题和优化</h3><ol>
+<li><p>安装后使用App Store安装，出现无法验证您的设备或电脑，请联系技术支持寻求帮助。</p>
+<p> 待解决</p>
+</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-05-04T04:34:39.000Z" itemprop="dateUpdated">2018年5月4日 12:34</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/2017/02/03/Workstation/" target="_blank" rel="external">http://dragon-lab.github.io/2017/02/03/Workstation/</a>
+    </div>
+    <footer>
+        <a href="http://dragon-lab.github.io">
+            <img src="/img/avatar.jpg" alt="Dragon">
+            Dragon
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/02/03/Base-Architecture/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">集成开发平台架构</h4>
+      </a>
+    </div>
+  
+
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="Workstation" data-title="组建自己的工作站" data-url="http://dragon-lab.github.io/2017/02/03/Workstation/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'dragon-lab', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.7');
+
+
+</script>
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Dragon Lab &copy; 2015 - 2018</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.7" async></script>
+
+
+
+
+
+
+
+</body>
+</html>
